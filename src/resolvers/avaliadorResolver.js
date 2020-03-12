@@ -4,6 +4,7 @@ export default {
     Query:{
         async listarAvaliador(parent, args, { mysql, request }, info) {
             let dao = new DAO("avaliador", mysql)
+            console.log(mysql);
             return dao.findByFields({
                 ...args
             })

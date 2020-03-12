@@ -19,9 +19,6 @@ class MySQLConnector {
             database: this.MYSQL_DB_NAME,
             password: this.MYSQL_DB_PASSWORD,
             connectionLimit: this.MYSQL_DB_POOL_SIZE,
-            connectTimeout: 60 * 60 * 1000,
-            acquireTimeout: 60 * 60 * 1000,
-            timeout: 60 * 60 * 1000,
             waitForConnections: true
         })
 

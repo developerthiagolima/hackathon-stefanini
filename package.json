@@ -17,6 +17,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.19.0",
+    "express-load": "^1.1.16",
     "graphql": "^14.6.0",
     "graphql-tools": "^4.0.4",
     "graphql-yoga": "^1.17.4",

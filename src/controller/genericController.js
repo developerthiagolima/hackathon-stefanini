@@ -1,16 +1,16 @@
 const DAO = require('../dao/dao')
 
 export default {
-    async listarAvaliador(app, req, res, done, mysql) {
+    async listar(app, req, res, done, mysql, table_name) {
         console.log(req.query);
-        let dao = new DAO("avaliador", mysql)
-        return dao.findByFields({
+        let dao = new DAO(table_name, mysql)
+        return await dao.findByFields({
             ...req.query
         })
     },
-    async salvarAvaliador(app, req, res, done, mysql) {
+    async salvar(app, req, res, done, mysql, table_name) {
         console.log(req.body);
-        let dao = new DAO("avaliador", mysql)
+        let dao = new DAO(table_name, mysql)
         const connection = await mysql.getConnectionFromPool()
         try{
             let _result = await dao.insert(connection, {
@@ -21,10 +21,10 @@ export default {
             if (connection != null) connection.release()
         }
     },
-    async atualizarAvaliador(app, req, res, done, mysql) {
+    async atualizar(app, req, res, done, mysql, table_name) {
         console.log(req.body.id);
         console.log(req.body);
-        let dao = new DAO("avaliador", mysql)
+        let dao = new DAO(table_name, mysql)
         const connection = await mysql.getConnectionFromPool()
         try{
             await dao.update(connection, {
@@ -36,9 +36,9 @@ export default {
             if (connection != null) connection.release()
         }
     },
-    async deletarAvaliador(app, req, res, done, mysql) {
+    async deletar(app, req, res, done, mysql, table_name) {
         console.log(req.query);
-        let dao = new DAO("avaliador", mysql)
+        let dao = new DAO(table_name, mysql)
         const connection = await mysql.getConnectionFromPool()
         try{
             await dao.delete(connection, {
