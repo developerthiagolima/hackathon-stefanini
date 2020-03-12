@@ -1,6 +1,5 @@
 type Query {
-    listarTipoGrupo(nome: String,
-                tipo_id: ID): [TipoGrupo]!
+    listarTipoGrupo(nome: String): [TipoGrupo]!
 }
 
 type Mutation {
@@ -11,11 +10,9 @@ type Mutation {
 
 input TipoGrupoInput {
     nome: String!
-    tipo_id: ID!
 }
 
 type TipoGrupo {
     id: ID!
     nome: String!
-    tipo: TipoGrupo!
 }

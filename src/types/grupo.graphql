@@ -10,8 +10,8 @@ type Mutation {
 }
 
 input GrupoInput {
-    nome: String!
-    tipo_id: ID!
+    nome: String
+    tipo_id: ID
 }
 
 type Grupo {

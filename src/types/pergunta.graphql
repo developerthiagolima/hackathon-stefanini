@@ -11,7 +11,7 @@ type Mutation {
 input PerguntaInput {
     nome: String!
     peso: Int!
-    tipo_id: ID
+    tipo_id: ID!
 }
 
 type Pergunta {

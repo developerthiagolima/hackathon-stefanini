@@ -54,7 +54,7 @@ export default {
         async tipo(parent, args, { mysql }, info) {
             return (await mysql.createQuery({
                 query: `SELECT * FROM ?? WHERE id = ? LIMIT 1;`,
-                params: ["tipo_grupo", parent.grupo_id]
+                params: ["tipo_grupo", parent.tipo_id]
             })).shift()
         },
     }
