@@ -1,0 +1,20 @@
+type Query {
+    listarPerfil(descricao: String): [Perfil]!
+}
+
+type Mutation {
+    criarPerfil(data: PerfilInput!): Perfil!
+    atualizarPerfil(id: ID!, data: PerfilInput!): Perfil!
+    deletarPerfil(id: ID!): String
+}
+
+input PerfilInput {
+    descricao: String
+    flativo: String
+}
+
+type Perfil {
+    id: ID!
+    descricao: String
+    flativo: String
+}

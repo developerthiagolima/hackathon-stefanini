@@ -1,0 +1,10 @@
+enum QueryOrderType {
+    ASC
+    DESC
+}
+
+enum MutationType {
+    CREATED
+    UPDATED
+    DELETED
+}
