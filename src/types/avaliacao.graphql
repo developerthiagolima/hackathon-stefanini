@@ -2,7 +2,6 @@ type Query {
     listarAvaliacao(candidato_id: ID,
                     avaliador_id: ID,
                     pergunta_id: ID): [Avaliacao]!
-    obterResultado(): [Avaliacao]!
 }
 
 type Mutation {
