@@ -9,7 +9,7 @@ class MySQLConnector {
     get MYSQL_DB_NAME() { return process.env.MYSQL_DB_NAME || 'heroku_93f17607b5229a4' }
     get MYSQL_DB_PASSWORD() { return process.env.MYSQL_DB_PASSWORD || '191bfa8c' }
     get MYSQL_DB_ADDRESS() { return process.env.MYSQL_DB_ADDRESS || 'us-cdbr-iron-east-04.cleardb.net' }
-    get MYSQL_DB_POOL_SIZE() { return process.env.MYSQL_DB_POOL_SIZE || 10 }
+    get MYSQL_DB_POOL_SIZE() { return process.env.MYSQL_DB_POOL_SIZE || 1000 }
 
 
     constructor() {
@@ -19,6 +19,9 @@ class MySQLConnector {
             database: this.MYSQL_DB_NAME,
             password: this.MYSQL_DB_PASSWORD,
             connectionLimit: this.MYSQL_DB_POOL_SIZE,
+            connectTimeout: 60 * 60 * 1000,
+            acquireTimeout: 60 * 60 * 1000,
+            timeout: 60 * 60 * 1000,
             waitForConnections: true
         })
 
