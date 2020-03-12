@@ -2,16 +2,36 @@
 
 ```
 {
-  bairros{
-    nome
+  listarAvaliacao{
+    candidato{
+      nome
+      grupo{
+        nome
+      }
+    }
+    avaliador{
+      nome
+    }
+    pergunta{
+      nome
+      tipo{
+        nome
+      }
+    }
+    nota
   }
 }
 ```
 ```
-mutation {
-  addBairro(nome: "Teste Thiago", cidadeid: 1, flativo: "S"){
-    id,
-    nome
+mutation{
+  criarAvaliacao(data:{
+    candidato_id: 2
+    avaliador_id: 2
+    pergunta_id: 2
+    nota: 5
+  })
+  {
+    id
   }
 }
 ```
