@@ -1,0 +1,26 @@
+type Query {
+    listarAvaliacao(candidato_id: ID,
+                    avaliador_id: ID,
+                    pergunta_id: ID): [Avaliacao]!
+}
+
+type Mutation {
+    criarAvaliacao(data: AvaliacaoInput!): Avaliacao!
+    atualizarAvaliacao(id: ID!, data: AvaliacaoInput!): Avaliacao!
+    deletarAvaliacao(id: ID!): String
+}
+
+input AvaliacaoInput {
+    candidato_id: ID!
+    avaliador_id: ID!
+    pergunta_id: ID!
+    nota: Int!
+}
+
+type Avaliacao {
+    id: ID!
+    candidato: Candidato
+    avaliador: Avaliador
+    pergunta: Pergunta
+    nota: Int
+}
