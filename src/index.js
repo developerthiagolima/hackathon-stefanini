@@ -3,7 +3,6 @@ import { default as typeDefs } from './types'
 import { default as resolvers } from './resolvers'
 
 const mysql = require('./dao/mysqlWrapper')
-const pubsub = new PubSub()
 
 const server = new GraphQLServer({
     typeDefs: typeDefs,
@@ -11,8 +10,7 @@ const server = new GraphQLServer({
     context(request) {
         return{
             mysql,
-            request,
-            pubsub
+            request
         } 
     }
 })

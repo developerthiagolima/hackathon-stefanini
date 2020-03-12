@@ -50,6 +50,10 @@ class DAO {
             params.push(limit)
         }
 
+        if (baseQuery.endsWith('WHERE ')) {
+            baseQuery += " 1=1"
+        }
+
         return this.mysql.createQuery({
             query: baseQuery,
             params

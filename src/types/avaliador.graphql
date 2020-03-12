@@ -1,0 +1,18 @@
+type Query {
+    listarAvaliador(nome: String): [Avaliador]!
+}
+
+type Mutation {
+    criarAvaliador(data: AvaliadorInput!): Avaliador!
+    atualizarAvaliador(id: ID!, data: AvaliadorInput!): Avaliador!
+    deletarAvaliador(id: ID!): String
+}
+
+input AvaliadorInput {
+    nome: String!
+}
+
+type Avaliador {
+    id: ID!
+    nome: String!
+}

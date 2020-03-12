@@ -3,21 +3,14 @@ const mysql = require('mysql');
 class MySQLConnector {
 
     
-    //heroku
-    /*
-    get MYSQL_DB_USER() { return process.env.MYSQL_DB_USER || 'ba5429351fb4e3' }
-    get MYSQL_DB_NAME() { return process.env.MYSQL_DB_NAME || 'heroku_0c12e22e60e1c87' }
-    get MYSQL_DB_PASSWORD() { return process.env.MYSQL_DB_PASSWORD || '933edc03b3da5ba' }
-    get MYSQL_DB_ADDRESS() { return process.env.MYSQL_DB_ADDRESS || 'us-cdbr-iron-east-02.cleardb.net' }
+    //heroku 
+    // mysql://bd6e2286211394:191bfa8c@us-cdbr-iron-east-04.cleardb.net/heroku_93f17607b5229a4?reconnect=true
+    get MYSQL_DB_USER() { return process.env.MYSQL_DB_USER || 'bd6e2286211394' }
+    get MYSQL_DB_NAME() { return process.env.MYSQL_DB_NAME || 'heroku_93f17607b5229a4' }
+    get MYSQL_DB_PASSWORD() { return process.env.MYSQL_DB_PASSWORD || '191bfa8c' }
+    get MYSQL_DB_ADDRESS() { return process.env.MYSQL_DB_ADDRESS || 'us-cdbr-iron-east-04.cleardb.net' }
     get MYSQL_DB_POOL_SIZE() { return process.env.MYSQL_DB_POOL_SIZE || 10 }
-    */
-    
-    get MYSQL_DB_USER() { return process.env.MYSQL_DB_USER || 'root' }
-    get MYSQL_DB_NAME() { return process.env.MYSQL_DB_NAME || 'mobdique' }
-    get MYSQL_DB_PASSWORD() { return process.env.MYSQL_DB_PASSWORD || 'admin' } //root
-    get MYSQL_DB_ADDRESS() { return process.env.MYSQL_DB_ADDRESS || 'localhost' }
-    get MYSQL_DB_POOL_SIZE() { return process.env.MYSQL_DB_POOL_SIZE || 10 }
-    
+
 
     constructor() {
         this.internalPool = mysql.createPool({

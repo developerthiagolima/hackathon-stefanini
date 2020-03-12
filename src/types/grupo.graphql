@@ -1,0 +1,18 @@
+type Query {
+    listarGrupo(nome: String): [Grupo]!
+}
+
+type Mutation {
+    criarGrupo(data: GrupoInput!): Grupo!
+    atualizarGrupo(id: ID!, data: GrupoInput!): Grupo!
+    deletarGrupo(id: ID!): String
+}
+
+input GrupoInput {
+    nome: String!
+}
+
+type Grupo {
+    id: ID!
+    nome: String!
+}

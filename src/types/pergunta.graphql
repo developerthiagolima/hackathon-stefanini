@@ -1,0 +1,22 @@
+type Query {
+    listarPergunta(nome: String): [Pergunta]!
+}
+
+type Mutation {
+    criarPergunta(data: PerguntaInput!): Pergunta!
+    atualizarPergunta(id: ID!, data: PerguntaInput!): Pergunta!
+    deletarPergunta(id: ID!): String
+}
+
+input PerguntaInput {
+    nome: String!
+    peso: Int!
+    tipo_id: ID
+}
+
+type Pergunta {
+    id: ID!
+    nome: String!
+    peso: Int!
+    tipo: TipoPergunta
+}

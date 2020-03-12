@@ -1,0 +1,21 @@
+type Query {
+    listarCandidato(nome: String,
+                    grupo_id: ID): [Candidato]!
+}
+
+type Mutation {
+    criarCandidato(data: CandidatoInput!): Candidato!
+    atualizarCandidato(id: ID!, data: CandidatoInput!): Candidato!
+    deletarCandidato(id: ID!): String
+}
+
+input CandidatoInput {
+    nome: String!
+    grupo_id: ID!
+}
+
+type Candidato {
+    id: ID!
+    nome: String!
+    grupo: Grupo!
+}
