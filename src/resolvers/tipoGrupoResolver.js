@@ -2,8 +2,8 @@ const DAO = require('../dao/dao')
 
 export default {
     Query:{
-        async listarGrupo(parent, args, { mysql, request }, info) {
-            let dao = new DAO("grupo", mysql)
+        async listarTipoGrupo(parent, args, { mysql, request }, info) {
+            let dao = new DAO("tipo_grupo", mysql)
             return dao.findByFields({
                 ...args
             })
@@ -11,8 +11,8 @@ export default {
     },
   
     Mutation:{
-        async criarGrupo(parent, args, { mysql, request }, info) {
-            let dao = new DAO("grupo", mysql)
+        async criarTipoGrupo(parent, args, { mysql, request }, info) {
+            let dao = new DAO("tipo_grupo", mysql)
             const connection = await mysql.getConnectionFromPool()
             try{
                 let _result = await dao.insert(connection, {
@@ -23,8 +23,8 @@ export default {
                 if (connection != null) connection.release()
             }
         },
-        async atualizarGrupo(parent, args, { mysql, request }, info) {
-            let dao = new DAO("grupo", mysql)
+        async atualizarTipoGrupo(parent, args, { mysql, request }, info) {
+            let dao = new DAO("tipo_grupo", mysql)
             const connection = await mysql.getConnectionFromPool()
             try{
                 await dao.update(connection, {
@@ -36,8 +36,8 @@ export default {
                 if (connection != null) connection.release()
             }
         },
-        async deletarGrupo(parent, args, { mysql, request }, info) {
-            let dao = new DAO("grupo", mysql)
+        async deletarTipoGrupo(parent, args, { mysql, request }, info) {
+            let dao = new DAO("tipo_grupo", mysql)
             const connection = await mysql.getConnectionFromPool()
             try{
                 await dao.delete(connection, {
@@ -49,13 +49,4 @@ export default {
             }
         },
     },
-
-    Grupo: {
-        async tipo(parent, args, { mysql }, info) {
-            return (await mysql.createQuery({
-                query: `SELECT * FROM ?? WHERE id = ? LIMIT 1;`,
-                params: ["tipo_grupo", parent.grupo_id]
-            })).shift()
-        },
-    }
   }

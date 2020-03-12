@@ -8,6 +8,12 @@ export default {
                 ...args
             })
         },
+        async obterResultado(parent, args, { mysql, request }, info) {
+            let dao = new DAO("avaliacao", mysql)
+            return dao.findByFields({
+                ...args
+            })
+        },
     },
   
     Mutation:{
