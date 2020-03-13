@@ -29,3 +29,6 @@ Router.load(server.express, mysql, "pergunta")
 Router.load(server.express, mysql, "grupo")
 Router.load(server.express, mysql, "tipo_grupo")
 Router.load(server.express, mysql, "tipo_pergunta")
+
+import { default as ResultadoRouter } from './routes/resultadoRouter'
+ResultadoRouter.load(server.express, mysql)
